@@ -1,12 +1,16 @@
-primes = [2]
+#Sieve of Eratosthenes algorithm
 
-for a in range(3, 2000000):
-    is_prime = True
-    for prime in primes:
-        if a % prime == 0:
-            is_prime = False
-            break
-    if is_prime:
-        primes.append(a)
+primes = [True] * (2000001)
+primes[0] = False
+primes[1] = False
 
-print(sum(primes[-1]))
+n = 2
+while n * n <= 2000000:
+    if primes[n]:
+        for i in range(n * n, 2000001, n):
+            primes[i] = False
+    n += 1
+
+all_primes = [i for i in range(2, 2000001) if primes[i]]
+
+print(sum(primes))
