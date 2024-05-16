@@ -1,15 +1,11 @@
 def palindrome_check(a):
     return a == a[::-1]
 
-a = 999
-b = 999
+max = 0
 
-while True:
-    if palindrome_check(str(a*b)):
-        break
-    a -= 1
-    if palindrome_check(str(a*b)):
-        break
-    b-=1
+for i in range(100, 1000):
+    for j in range(100, 1000):
+        if palindrome_check(str(i * j)) and max < i * j:
+            max = i * j
 
-print(a*b)
+print(max)

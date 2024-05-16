@@ -13,4 +13,4 @@ while n * n <= 2000000:
 
 all_primes = [i for i in range(2, 2000001) if primes[i]]
 
-print(sum(primes))
+print(sum(all_primes))
